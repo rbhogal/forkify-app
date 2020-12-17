@@ -446,7 +446,7 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"4JleI":[function(require,module,exports) {
-require('./bundle-manifest').register(JSON.parse("{\"2dtmM\":\"index.1dbdbe87.js\",\"2zALM\":\"icons.a5254f70.svg\"}"));
+require('./bundle-manifest').register(JSON.parse("{\"2dtmM\":\"index.HASH_REF_48daa4896af42a4d83c544df1dbdbe87.js\",\"2zALM\":\"icons.HASH_REF_54938424b181fd83f014c8faa5254f70.svg\"}"));
 },{"./bundle-manifest":"r3gis"}],"r3gis":[function(require,module,exports) {
 "use strict";
 
@@ -656,7 +656,7 @@ class RecipeView {
     <div class="recipe__ingredients">
       <h2 class="heading--2">Recipe ingredients</h2>
       <ul class="recipe__ingredient-list">
-        ${this.#data.ingredients.map(this.#generateMarkupIngredient).join('')}
+        ${this.#data.ingredients.map().join('')}
     </div>
 
     <div class="recipe__directions">
@@ -680,21 +680,7 @@ class RecipeView {
   `;
   }
 
-  #generateMarkupIngredient(ing) {
-    return `
-    <li class="recipe__ingredient">
-      <svg class="recipe__icon">
-        <use href="${_icons.default}#icon-check"></use>
-      </svg>
-      <div class="recipe__quantity">${ing.quantity ? new _fractional.Fraction(ing.quantity).toString() : ''}</div>
-      <div class="recipe__description">
-        <span class="recipe__unit">${ing.unit}</span>
-        ${ing.description}
-      </div>
-    </li>
-  `;
-  }
-
+  #generateMarkupIngredient;
 }
 
 var _default = new RecipeView();
@@ -13732,4 +13718,4 @@ try {
 
 },{}]},{},["2sOrK","4JleI","XJubL"], "XJubL", "parcelRequirefade")
 
-//# sourceMappingURL=index.1dbdbe87.js.map
+//# sourceMappingURL=index.HASH_REF_48daa4896af42a4d83c544df1dbdbe87.js.map
