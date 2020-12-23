@@ -446,7 +446,7 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"4JleI":[function(require,module,exports) {
-require('./bundle-manifest').register(JSON.parse("{\"2dtmM\":\"index.1dbdbe87.js\",\"2zALM\":\"icons.a5254f70.svg\"}"));
+require('./bundle-manifest').register(JSON.parse("{\"2dtmM\":\"index.HASH_REF_48daa4896af42a4d83c544df1dbdbe87.js\",\"2zALM\":\"icons.HASH_REF_54938424b181fd83f014c8faa5254f70.svg\"}"));
 },{"./bundle-manifest":"r3gis"}],"r3gis":[function(require,module,exports) {
 "use strict";
 
@@ -527,7 +527,7 @@ const controlSearchResults = async function () {
     await model.loadSearchResults(query); // 3) Render results
     // resultsView.render(model.state.search.results)
 
-    _resultsView.default.render(model.getSearchResultsPage(6)); // 4) Render initial pagination buttons
+    _resultsView.default.render(model.getSearchResultsPage(1)); // 4) Render initial pagination buttons
 
 
     _paginationView.default.render(model.state.search);
@@ -14017,7 +14017,7 @@ class PaginationView extends _View.default {
 
 
     if (curPage < numPages) {
-      return this._generateMarkupButton(curPage, 'both');
+      return this._generateMarkupButton(curPage, 'next'), this._generateMarkupButton(curPage, 'prev');
     } // Page 1, and there are no other pages
 
 
@@ -14043,53 +14043,59 @@ class PaginationView extends _View.default {
     `;
     if (pageBtn === 'prev') return prevBtn;
     if (pageBtn === 'next') return nextBtn;
-    if (pageBtn === 'both') return prevBtn + nextBtn;
   }
   /* 
-  _generateMarkup() {
-    const curPage = this._data.page;
-    const numPages = Math.ceil(
-      this._data.results.length / this._data.resultsPerPage
-    );
-      // Page 1, and there are other pages
-    if (curPage === 1 && numPages > 1) {
-      return this._generateMarkupButton(curPage, 'next');
-    }
-      // Last page
-    if (curPage === numPages && numPages > 1) {
-      return this._generateMarkupButton(curPage, 'prev');
-    }
-      // Other page
-    if (curPage < numPages) {
-      return (
-        this._generateMarkupButton(curPage, 'next'),
-        this._generateMarkupButton(curPage, 'prev')
+    _generateMarkup() {
+      const curPage = this._data.page;
+      const numPages = Math.ceil(
+        this._data.results.length / this._data.resultsPerPage
       );
-    }
+  
+      // Page 1, and there are other pages
+      if (curPage === 1 && numPages > 1) {
+        return this._generateMarkupButton(curPage, 'next');
+      }
+  
+      // Last page
+      if (curPage === numPages && numPages > 1) {
+        return this._generateMarkupButton(curPage, 'prev');
+      }
+  
+      // Other page
+      if (curPage < numPages) {
+        return (
+          this._generateMarkupButton(curPage, 'next'),
+          this._generateMarkupButton(curPage, 'prev')
+        );
+      }
+  
       // Page 1, and there are no other pages
-    return '';
-  }
+      return '';
+    }
+  
     _generateMarkupButton(curPage, pageBtn) {
-    const prevBtn = `
-      <button class="btn--inline pagination__btn--prev">
-        <svg class="search__icon">
-          <use href="${icons}#icon-arrow-left"></use>
-        </svg>
-        <span>Page ${curPage - 1}</span>
-      </button>
-      `;
+      const prevBtn = `
+        <button class="btn--inline pagination__btn--prev">
+          <svg class="search__icon">
+            <use href="${icons}#icon-arrow-left"></use>
+          </svg>
+          <span>Page ${curPage - 1}</span>
+        </button>
+        `;
+  
       const nextBtn = `
-      <button class="btn--inline pagination__btn--next">
-        <span>Page ${curPage + 1}</span>
-        <svg class="search__icon">
-          <use href="${icons}#icon-arrow-right"></use>
-        </svg>
-      </button>
-    `;
+        <button class="btn--inline pagination__btn--next">
+          <span>Page ${curPage + 1}</span>
+          <svg class="search__icon">
+            <use href="${icons}#icon-arrow-right"></use>
+          </svg>
+        </button>
+      `;
+  
       if (pageBtn === 'prev') return prevBtn;
-    if (pageBtn === 'next') return nextBtn;
-  }
-  */
+      if (pageBtn === 'next') return nextBtn;
+    }
+   */
 
   /* 
   _generateMarkup() {
@@ -14149,4 +14155,4 @@ var _default = new PaginationView();
 exports.default = _default;
 },{"./View.js":"5kK4W","url:../../img/icons.svg":"3Wsnk"}]},{},["2sOrK","4JleI","XJubL"], "XJubL", "parcelRequirefade")
 
-//# sourceMappingURL=index.1dbdbe87.js.map
+//# sourceMappingURL=index.HASH_REF_48daa4896af42a4d83c544df1dbdbe87.js.map
