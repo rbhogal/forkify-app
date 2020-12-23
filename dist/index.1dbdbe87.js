@@ -483,6 +483,8 @@ var _searchView = _interopRequireDefault(require("./views/searchView.js"));
 
 var _resultsView = _interopRequireDefault(require("./views/resultsView.js"));
 
+var _paginationView = _interopRequireDefault(require("./views/paginationView.js"));
+
 require("core-js/stable");
 
 require("regenerator-runtime/runtime");
@@ -520,11 +522,15 @@ const controlSearchResults = async function () {
 
     const query = _searchView.default.getQuery();
 
-    if (!query) return; // 2) Load search results 
+    if (!query) return; // 2) Load search results
 
     await model.loadSearchResults(query); // 3) Render results
+    // resultsView.render(model.state.search.results)
 
-    _resultsView.default.render(model.state.search.results);
+    _resultsView.default.render(model.getSearchResultsPage(1)); // 4) Render initial pagination buttons
+
+
+    _paginationView.default.render(model.state.search);
   } catch (err) {
     console.log(err);
   }
@@ -537,24 +543,26 @@ const init = function () {
 };
 
 init();
-},{"./model.js":"4zirz","./views/recipeView.js":"3LnNd","./views/searchView.js":"5myLn","./views/resultsView.js":"4fDI4","core-js/stable":"7HWBg","regenerator-runtime/runtime":"52ZGc"}],"4zirz":[function(require,module,exports) {
+},{"./model.js":"4zirz","./views/recipeView.js":"3LnNd","./views/searchView.js":"5myLn","./views/resultsView.js":"4fDI4","core-js/stable":"7HWBg","regenerator-runtime/runtime":"52ZGc","./views/paginationView.js":"2wDve"}],"4zirz":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.loadSearchResults = exports.loadRecipe = exports.state = void 0;
+exports.getSearchResultsPage = exports.loadSearchResults = exports.loadRecipe = exports.state = void 0;
 
 var _config = require("./config.js");
 
 var _helpers = require("./helpers.js");
 
-// State contains all the data we need to store our application 
+// State contains all the data we need to store our application
 const state = {
   recipe: {},
   search: {
     query: '',
-    results: []
+    results: [],
+    page: 1,
+    resultsPerPage: _config.RES_PER_PAGE
   }
 };
 exports.state = state;
@@ -605,17 +613,30 @@ const loadSearchResults = async function (query) {
 };
 
 exports.loadSearchResults = loadSearchResults;
+
+const getSearchResultsPage = function (page = state.search.page) {
+  state.search.page = page;
+  const start = (page - 1) * state.search.resultsPerPage; // 0;
+
+  const end = page * state.search.resultsPerPage; // 9;
+
+  return state.search.results.slice(start, end);
+};
+
+exports.getSearchResultsPage = getSearchResultsPage;
 },{"./config.js":"F1wIw","./helpers.js":"1IjzK"}],"F1wIw":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.TIMEOUT_SEC = exports.API_URL = void 0;
+exports.RES_PER_PAGE = exports.TIMEOUT_SEC = exports.API_URL = void 0;
 const API_URL = 'https://forkify-api.herokuapp.com/api/v2/recipes/';
 exports.API_URL = API_URL;
 const TIMEOUT_SEC = 10;
 exports.TIMEOUT_SEC = TIMEOUT_SEC;
+const RES_PER_PAGE = 10;
+exports.RES_PER_PAGE = RES_PER_PAGE;
 },{}],"1IjzK":[function(require,module,exports) {
 "use strict";
 
@@ -13963,6 +13984,122 @@ try {
   Function("r", "regeneratorRuntime = r")(runtime);
 }
 
-},{}]},{},["2sOrK","4JleI","XJubL"], "XJubL", "parcelRequirefade")
+},{}],"2wDve":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _View = _interopRequireDefault(require("./View.js"));
+
+var _icons = _interopRequireDefault(require("url:../../img/icons.svg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// Parcel v2
+class PaginationView extends _View.default {
+  _parentElement = document.querySelector('.pagination');
+
+  _generateMarkup() {
+    const curPage = this._data.page;
+    const numPages = Math.ceil(this._data.results.length / this._data.resultsPerPage); // Page 1, and there are other pages
+
+    if (curPage === 1 && numPages > 1) {
+      return this._generateMarkupButton(curPage, 'next');
+    } // Last page
+
+
+    if (curPage === numPages && numPages > 1) {
+      return this._generateMarkupButton(curPage, 'prev');
+    } // Other page
+
+
+    if (curPage < numPages) {
+      return this._generateMarkupButton(curPage, 'next') && this._generateMarkupButton(curPage, 'prev');
+    } // Page 1, and there are no other pages
+
+
+    return '';
+  }
+
+  _generateMarkupButton(curPage, pageBtn) {
+    const prevBtn = `
+      <button class="btn--inline pagination__btn--prev">
+        <svg class="search__icon">
+          <use href="${_icons.default}#icon-arrow-left"></use>
+        </svg>
+        <span>Page ${curPage - 1}</span>
+      </button>
+      `;
+    const nextBtn = `
+      <button class="btn--inline pagination__btn--next">
+        <span>Page ${curPage + 1}</span>
+        <svg class="search__icon">
+          <use href="${_icons.default}#icon-arrow-right"></use>
+        </svg>
+      </button>
+    `;
+    if (pageBtn === 'prev') return prevBtn;
+    if (pageBtn === 'next') return nextBtn;
+  }
+  /* 
+  _generateMarkup() {
+    const curPage = this._data.page;
+    const numPages = Math.ceil(
+      this._data.results.length / this._data.resultsPerPage
+    );
+    console.log(numPages);
+      // Page 1, and there are other pages
+    if (curPage === 1 && numPages > 1) {
+      return `
+      <button class="btn--inline pagination__btn--next">
+        <span>Page ${curPage + 1}</span>
+        <svg class="search__icon">
+          <use href="${icons}#icon-arrow-right"></use>
+        </svg>
+      </button>
+      `;
+    }
+      // Last page
+    if (curPage === numPages && numPages > 1) {
+      return `
+      <button class="btn--inline pagination__btn--prev">
+        <svg class="search__icon">
+          <use href="${icons}#icon-arrow-left"></use>
+        </svg>
+        <span>Page ${curPage - 1}</span>
+      </button>
+      `;
+    }
+      // Other page
+    if (curPage < numPages) {
+      return `
+      <button class="btn--inline pagination__btn--prev">
+        <svg class="search__icon">
+          <use href="${icons}#icon-arrow-left"></use>
+        </svg>
+        <span>Page ${curPage - 1}</span>
+      </button>
+      <button class="btn--inline pagination__btn--next">
+        <span>Page ${curPage + 1}</span>
+        <svg class="search__icon">
+          <use href="${icons}#icon-arrow-right"></use>
+        </svg>
+      </button>
+      `;
+    }
+      // Page 1, and there are no other pages
+    return ''; 
+    */
+
+
+}
+
+var _default = new PaginationView();
+
+exports.default = _default;
+},{"./View.js":"5kK4W","url:../../img/icons.svg":"3Wsnk"}]},{},["2sOrK","4JleI","XJubL"], "XJubL", "parcelRequirefade")
 
 //# sourceMappingURL=index.1dbdbe87.js.map
