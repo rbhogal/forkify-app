@@ -527,7 +527,7 @@ const controlSearchResults = async function () {
     await model.loadSearchResults(query); // 3) Render results
     // resultsView.render(model.state.search.results)
 
-    _resultsView.default.render(model.getSearchResultsPage(6)); // 4) Render initial pagination buttons
+    _resultsView.default.render(model.getSearchResultsPage(3)); // 4) Render initial pagination buttons
 
 
     _paginationView.default.render(model.state.search);
@@ -536,10 +536,20 @@ const controlSearchResults = async function () {
   }
 };
 
+const controlPagination = function (goToPage) {
+  // 1) Render NEW results
+  _resultsView.default.render(model.getSearchResultsPage(goToPage)); // 2) Render NEW pagination buttons
+
+
+  _paginationView.default.render(model.state.search);
+};
+
 const init = function () {
   _recipeView.default.addHandlerRender(controlRecipes);
 
   _searchView.default.addHandlerSearch(controlSearchResults);
+
+  _paginationView.default.addHandlerClick(controlPagination);
 };
 
 init();
@@ -14002,6 +14012,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 class PaginationView extends _View.default {
   _parentElement = document.querySelector('.pagination');
 
+  addHandlerClick(handler) {
+    this._parentElement.addEventListener('click', function (e) {
+      const btn = e.target.closest('.btn--inline');
+      if (!btn) return;
+      const goToPage = +btn.dataset.goto;
+      handler(goToPage);
+    });
+  }
+
   _generateMarkup() {
     const curPage = this._data.page;
     const numPages = Math.ceil(this._data.results.length / this._data.resultsPerPage); // Page 1, and there are other pages
@@ -14026,7 +14045,7 @@ class PaginationView extends _View.default {
 
   _generateMarkupButton(curPage, pageBtn) {
     const prevBtn = `
-      <button class="btn--inline pagination__btn--prev">
+      <button data-goto="${curPage - 1}"class="btn--inline pagination__btn--prev">
         <svg class="search__icon">
           <use href="${_icons.default}#icon-arrow-left"></use>
         </svg>
@@ -14034,7 +14053,7 @@ class PaginationView extends _View.default {
       </button>
       `;
     const nextBtn = `
-      <button class="btn--inline pagination__btn--next">
+      <button data-goto="${curPage + 1}" class="btn--inline pagination__btn--next">
         <span>Page ${curPage + 1}</span>
         <svg class="search__icon">
           <use href="${_icons.default}#icon-arrow-right"></use>
