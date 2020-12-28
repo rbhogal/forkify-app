@@ -446,7 +446,7 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"4JleI":[function(require,module,exports) {
-require('./bundle-manifest').register(JSON.parse("{\"2dtmM\":\"index.1dbdbe87.js\",\"2zALM\":\"icons.a5254f70.svg\"}"));
+require('./bundle-manifest').register(JSON.parse("{\"2dtmM\":\"index.HASH_REF_48daa4896af42a4d83c544df1dbdbe87.js\",\"2zALM\":\"icons.HASH_REF_54938424b181fd83f014c8faa5254f70.svg\"}"));
 },{"./bundle-manifest":"r3gis"}],"r3gis":[function(require,module,exports) {
 "use strict";
 
@@ -628,7 +628,7 @@ const loadSearchResults = async function (query) {
         image: rec.image_url
       };
     });
-    state.search.page = 1;
+    state;
   } catch (err) {
     console.error(`Beep! Boop! Bop! ${err}`);
     throw err;
@@ -14219,4 +14219,4 @@ try {
 
 },{}]},{},["2sOrK","4JleI","XJubL"], "XJubL", "parcelRequirefade")
 
-//# sourceMappingURL=index.1dbdbe87.js.map
+//# sourceMappingURL=index.HASH_REF_48daa4896af42a4d83c544df1dbdbe87.js.map
