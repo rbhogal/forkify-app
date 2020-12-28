@@ -557,8 +557,6 @@ const controlServings = function (newServings) {
 const init = function () {
   _recipeView.default.addHandlerRender(controlRecipes);
 
-  _recipeView.default.addHandlerUpdateServings(controlServings);
-
   _searchView.default.addHandlerSearch(controlSearchResults);
 
   _paginationView.default.addHandlerClick(controlPagination);
@@ -571,7 +569,7 @@ init();
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateServings = exports.getSearchResultsPage = exports.loadSearchResults = exports.loadRecipe = exports.state = void 0;
+exports.getSearchResultsPage = exports.loadSearchResults = exports.loadRecipe = exports.state = void 0;
 
 var _config = require("./config.js");
 
@@ -646,15 +644,6 @@ const getSearchResultsPage = function (page = state.search.page) {
 };
 
 exports.getSearchResultsPage = getSearchResultsPage;
-
-const updateServings = function (newServings) {
-  state.recipe.ingredients.forEach(ing => {
-    ing.quantity = ing.quantity * newServings / state.recipe.servings; // newQt = oldQt * newServings / oldServings // 2 * 8 / 4 = 4
-  });
-  state.recipe.servings = newServings;
-};
-
-exports.updateServings = updateServings;
 },{"./config.js":"F1wIw","./helpers.js":"1IjzK"}],"F1wIw":[function(require,module,exports) {
 "use strict";
 
@@ -728,17 +717,6 @@ class RecipeView extends _View.default {
     // window.addEventListener('load', controlRecipes);
   }
 
-  addHandlerUpdateServings(handler) {
-    this._parentElement.addEventListener('click', function (e) {
-      const btn = e.target.closest('.btn--update-servings');
-      if (!btn) return;
-      const {
-        updateTo
-      } = btn.dataset;
-      if (+updateTo > 0) handler(+updateTo);
-    });
-  }
-
   _generateMarkup() {
     return `
     <figure class="recipe__fig">
@@ -764,12 +742,12 @@ class RecipeView extends _View.default {
         <span class="recipe__info-text">servings</span>
 
         <div class="recipe__info-buttons">
-          <button class="btn--tiny btn--update-servings" data-update-to="${this._data.servings - 1}">
+          <button class="btn--tiny btn--increase-servings">
             <svg>
               <use href="${_icons.default}#icon-minus-circle"></use>
             </svg>
           </button>
-          <button class="btn--tiny btn--update-servings" data-update-to="${this._data.servings + 1}">
+          <button class="btn--tiny btn--increase-servings">
             <svg>
               <use href="${_icons.default}#icon-plus-circle"></use>
             </svg>
