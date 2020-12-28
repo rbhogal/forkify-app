@@ -33,7 +33,7 @@
 175C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\util.promisify\node_modules\es-abstract\2015\YearFromTime.js121436361000000000 0
 171C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\util.promisify\node_modules\es-abstract\2015\ToString.js121436361000000000 0
 139C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\abortcontroller-polyfill132521967912113422 1
-106C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist132532351273194040 1
+106C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist132536589082963946 1
 152C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\ora\node_modules\color-name\README.md121436361000000000 0
 134C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\strip-final-newline132521971541339191 1
 136C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\object.assign\auto.js121436361000000000 0
@@ -155,7 +155,7 @@
 109C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\src\img132475804580000000 1
 134C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\is-regexp\readme.md130469234980000000 0
 170C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\@babel\runtime\helpers\esm\createForOfIteratorHelper.js121012626000000000 0
-122C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\src\js\views\View.js132530818515714990 0
+122C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\src\js\views\View.js132536588459224476 0
 191C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\util.promisify\node_modules\es-abstract\2018\AbstractRelationalComparison.js121436361000000000 0
 124C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\hmac-drbg132521967905271609 1
 152C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\@babel\runtime\helpers\temporalRef.js121012626000000000 0
@@ -312,9 +312,9 @@
 147C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\rxjs\src\operators\sampleTime.ts121436361000000000 0
 123C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\src\sass\_upload.scss132475804580000000 0
 153C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\highlight.js\lib\languages\makefile.js131406724530000000 0
-118C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\src\js\config.js132531438877818417 0
+118C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\src\js\config.js132532465890118609 0
 141C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\postcss-svgo\dist\index.js121436361000000000 0
-122C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\src\js\controller.js132532346759040863 0
+122C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\src\js\controller.js132536585191066037 0
 125C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\pbkdf2\lib132521967811329271 1
 146C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\rxjs\src\operators\elementAt.ts121436361000000000 0
 164C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\postcss-colormin\node_modules\postcss\lib\list.js121436361000000000 0
@@ -361,7 +361,7 @@
 155C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\core-js\modules\es.array.reduce-right.js121436361000000000 0
 163C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\serve-handler\node_modules\mime-types\HISTORY.md131632749310000000 0
 130C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\readable-stream132521967895567549 1
-117C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\src\js\model.js132531543038355209 0
+117C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\src\js\model.js132533112390352723 0
 128C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\fault\license121436361000000000 0
 144C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\rxjs\src\operator\debounce.ts121436361000000000 0
 171C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\rxjs\_esm2015\internal\scheduled\scheduleIterable.js.map121436361000000000 0
@@ -375,7 +375,7 @@
 135C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\request\package.json132521967895168601 0
 131C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\stable\stable.js131691408950000000 0
 173C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\postcss-svgo\node_modules\postcss-value-parser\lib\walk.js121436361000000000 0
-132C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\src\js\views\paginationView.js132532351267651189 0
+132C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\src\js\views\paginationView.js132532465923636849 0
 132C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\lodash\_Symbol.js121436361000000000 0
 147C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\es-abstract\2015\IsExtensible.js121436361000000000 0
 156C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\@parcel\utils\src\generateBuildMetrics.js121436361000000000 0
@@ -398,7 +398,7 @@
 155C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\csso\lib\replace\property\font-weight.js121436361000000000 0
 178C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\postcss-unique-selectors\node_modules\supports-color\browser.js121436361000000000 0
 158C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\rxjs\internal\observable\dom\webSocket.d.ts121436361000000000 0
-128C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\src\js\views\recipeView.js132530814184831905 0
+128C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\src\js\views\recipeView.js132534046081567954 0
 144C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\highlight.js\styles\xcode.css131406724530000000 0
 185C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\uncss\node_modules\postcss-selector-parser\dist\selectors\className.js121436361000000000 0
 146C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\css-tree\lib\syntax\node\CDC.js121436361000000000 0
@@ -428,7 +428,7 @@
 124C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\encodeurl132521967908512941 1
 156C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\core-js\features\object\iterate-values.js121436361000000000 0
 140C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\rxjs\operators\toArray.js121436361000000000 0
-129C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\src\js\views\resultsView.js132530815625558246 0
+129C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\src\js\views\resultsView.js132536581285472796 0
 133C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\is-data-descriptor132521967906548180 1
 131C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\dotenv\README.md121436361000000000 0
 146C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\caniuse-lite\data\regions\PR.js121436361000000000 0
@@ -6660,7 +6660,7 @@
 144C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\stringify-object\node_modules132521971535314998 1
 141C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\stringify-object\readme.md121436361000000000 0
 151C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\stringify-object\node_modules\is-obj132521971541518810 1
-127C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\favicon.8e9f22c7.png132532351271518528 0
+127C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\favicon.8e9f22c7.png132536589082664807 0
 177C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\regenerate-unicode-properties\Script\Inscriptional_Parthian.js121436361000000000 0
 164C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\stringify-object\node_modules\is-obj\package.json132521971541169640 0
 159C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\rxjs\_esm5\internal\testing\HotObservable.js121436361000000000 0
@@ -8060,7 +8060,7 @@
 168C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\@parcel\runtime-js\lib\loaders\browser\wasm-loader.js121436361000000000 0
 152C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\rxjs\src\add\operator\debounceTime.ts121436361000000000 0
 158C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\rxjs\_esm5\internal\operators\zipAll.js.map121436361000000000 0
-124C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\logo.5cd9a98d.png132532351271528498 0
+124C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\logo.5cd9a98d.png132536589082674752 0
 165C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\rxjs\_esm5\internal\observable\bindCallback.js.map121436361000000000 0
 170C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\postcss-modules-scope\node_modules\postcss\package.json132521967899297570 0
 169C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\rxjs\_esm5\internal\observable\bindNodeCallback.js.map121436361000000000 0
@@ -9527,7 +9527,7 @@
 138C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\core-js\configurator.js121436361000000000 0
 162C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\postcss-merge-longhand\dist\lib\decl\columns.js121436361000000000 0
 155C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\rxjs\src\internal\observable\generate.ts121436361000000000 0
-125C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\icons.c69e9c2e.svg132532351271508564 0
+125C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\icons.c69e9c2e.svg132536589082664807 0
 150C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\rxjs\src\internal\observable\iif.ts121436361000000000 0
 155C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\rxjs\src\internal\observable\interval.ts121436361000000000 0
 154C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\human-signals\build\src\realtime.js.map121436361000000000 0
@@ -18259,7 +18259,7 @@
 147C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\es-abstract\2019\ToUint8Clamp.js121436361000000000 0
 145C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\es-abstract\2019\TrimString.js121436361000000000 0
 148C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\es-abstract\2019\UnicodeEscape.js121436361000000000 0
-117C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\index.html132532351273094315 0
+117C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\index.html132536589082874202 0
 144C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\@parcel\ts-utils\src\index.js121436361000000000 0
 148C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\es-abstract\2019\UTF16Encoding.js121436361000000000 0
 169C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\es-abstract\2019\ValidateAndApplyPropertyDescriptor.js121436361000000000 0
@@ -18346,7 +18346,7 @@
 150C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\es-abstract\2017\GetSubstitution.js121436361000000000 0
 139C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\es-abstract\2017\GetV.js121436361000000000 0
 145C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\es-abstract\2017\InLeapYear.js121436361000000000 0
-129C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\index.be65a76e.css.map132532351273144183 0
+129C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\index.be65a76e.css.map132536589082924060 0
 141C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\es-abstract\2017\Invoke.js121436361000000000 0
 142C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\es-abstract\2017\IsArray.js121436361000000000 0
 145C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\es-abstract\2017\IsCallable.js121436361000000000 0
@@ -21473,7 +21473,7 @@
 137C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\arr-union\package.json132521967911884038 0
 134C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\arr-union\README.md131006870500000000 0
 131C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\arr-diff\LICENSE130847741690000000 0
-125C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\index.be65a76e.css132532351273094315 0
+125C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\index.be65a76e.css132536589082874202 0
 131C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\argparse\LICENSE130686249500000000 0
 133C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\argparse\README.md131631780190000000 0
 137C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\argparse\lib\action.js131231663570000000 0
@@ -23426,6 +23426,6 @@
 126C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\.bin\terser132521971547462831 0
 129C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\.bin\uncss.cmd132521967916403083 0
 124C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\node_modules\.bin\uuid132521967916115386 0
-125C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\icons.a5254f70.svg132532351271518528 0
-124C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\index.1dbdbe87.js132532351273144183 0
-128C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\index.1dbdbe87.js.map132532351273184071 0
+125C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\icons.a5254f70.svg132536589082784446 0
+124C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\index.1dbdbe87.js132536589082924060 0
+128C:\Users\rbhog\OneDrive\Documents\web-projects\complete-javascript-courseV2-master\18-forkify\starter\dist\index.1dbdbe87.js.map132536589082953977 0

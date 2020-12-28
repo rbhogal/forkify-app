@@ -495,16 +495,18 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-if (module.hot) {
-  module.hot.accept();
-}
-
+// if (module.hot) {
+//   module.hot.accept();
+// }
 const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
     if (!id) return;
 
-    _recipeView.default.renderSpinner(); // 1) Loading recipe
+    _recipeView.default.renderSpinner(); // 0) Update results view to mark selected serach result
+
+
+    _resultsView.default.update(model.getSerachResultsPage()); // 1) Loading recipe
 
 
     await model.loadRecipe(id); // 2) Rendering recipe
@@ -547,8 +549,9 @@ const controlPagination = function (goToPage) {
 const controlServings = function (newServings) {
   // Update the recipe servings (in state)
   model.updateServings(newServings); // Update the recipe view
+  // recipeView.render(model.state.recipe);
 
-  _recipeView.default.render(model.state.recipe);
+  _recipeView.default.update(model.state.recipe);
 };
 
 const init = function () {
@@ -784,13 +787,13 @@ class RecipeView extends _View.default {
     </div>
 
     <div class="recipe__ingredients">
-      <h2 class="heading--2">Recipe ingredients</h2>
+      <h2 class="heading--2">Ingredients</h2>
       <ul class="recipe__ingredient-list">
         ${this._data.ingredients.map(this._generateMarkupIngredient).join('')}
     </div>
 
     <div class="recipe__directions">
-      <h2 class="heading--2">How to cook it</h2>
+      <h2 class="heading--2">Instructions</h2>
       <p class="recipe__directions-text">
         This recipe was carefully designed and tested by
         <span class="recipe__publisher">${this._data.publisher}</span>. Please check out
@@ -855,6 +858,29 @@ class View {
     this._clear();
 
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
+  }
+
+  update(data) {
+    if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
+    this._data = data;
+
+    const newMarkup = this._generateMarkup();
+
+    const newDOM = document.createRange().createContextualFragment(newMarkup);
+    const newElements = Array.from(newDOM.querySelectorAll('*'));
+    const curElements = Array.from(this._parentElement.querySelectorAll('*'));
+    newElements.forEach((newEl, i) => {
+      const curEl = curElements[i];
+      console.log(curEl, newEl.isEqualNode(curEl)); // Updates changed TEXT
+
+      if (!newEl.isEqualNode(curEl) && newEl.firstChild?.nodeValue.trim() !== '') {
+        // console.log('🔥', newEl.firstChild.nodeValue.trim());
+        curEl.textContent = newEl.textContent;
+      } // Updates changed ATTRIBUTES
+
+
+      if (!newEl.isEqualNode(curEl)) Array.from(newEl.attributes).forEach(attr => curEl.setAttribute(attr.name, attr.value));
+    });
   }
 
   _clear() {
@@ -1455,9 +1481,10 @@ class ResultsView extends _View.default {
   }
 
   _generateMarkupPreview(result) {
+    const id = window.location.hash.slice(1);
     return `
         <li class="preview">
-            <a class="preview__link" href="#${result.id}">
+            <a class="preview__link ${result.id === id ? 'preview__link--active' : ''}" href="#${result.id}">
                 <figure class="preview__fig">
                     <img src="${result.image}" alt="${result.title}" />
                 </figure>

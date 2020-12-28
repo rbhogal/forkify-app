@@ -7,9 +7,9 @@ import paginationView from './views/paginationView.js';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-if (module.hot) {
-  module.hot.accept();
-}
+// if (module.hot) {
+//   module.hot.accept();
+// }
 
 const controlRecipes = async function () {
   try {
@@ -17,6 +17,9 @@ const controlRecipes = async function () {
 
     if (!id) return;
     recipeView.renderSpinner();
+
+    // 0) Update results view to mark selected serach result
+    resultsView.update(model.getSerachResultsPage());
 
     // 1) Loading recipe
     await model.loadRecipe(id);
@@ -63,7 +66,8 @@ const controlServings = function (newServings) {
   model.updateServings(newServings);
 
   // Update the recipe view
-  recipeView.render(model.state.recipe);
+  // recipeView.render(model.state.recipe);
+  recipeView.update(model.state.recipe);
 };
 
 const init = function () {
