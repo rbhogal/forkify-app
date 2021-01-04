@@ -477,6 +477,8 @@ module.exports.resolve = resolve;
 
 var model = _interopRequireWildcard(require("./model.js"));
 
+var _config = require("./config.js");
+
 var _recipeView = _interopRequireDefault(require("./views/recipeView.js"));
 
 var _searchView = _interopRequireDefault(require("./views/searchView.js"));
@@ -578,8 +580,27 @@ const controlBookmarks = function () {
 
 const controlAddRecipe = async function (newRecipe) {
   try {
-    // Upload the new recipe data
+    // Show loading spinner
+    _addRecipeView.default.renderSpinner(); // Upload the new recipe data
+
+
     await model.uploadRecipe(newRecipe);
+    console.log(model.state.recipe); // Render recipe
+
+    _recipeView.default.render(model.state.recipe); // Success message
+
+
+    _addRecipeView.default.renderMessage(); // Render bookmark view
+
+
+    _bookmarksView.default.render(model.state.bookmarks); // Change ID in URL
+
+
+    window.history.pushState(null, '', `#${model.state.recipe.id}`); // Close form window
+
+    setTimeout(function () {
+      _addRecipeView.default.toggleWindow();
+    }, _config.MODAL_CLOSE_SEC * 1000);
   } catch (err) {
     console.error('💩', err);
 
@@ -604,7 +625,7 @@ const init = function () {
 };
 
 init();
-},{"./model.js":"4zirz","./views/recipeView.js":"3LnNd","./views/searchView.js":"5myLn","./views/resultsView.js":"4fDI4","./views/paginationView.js":"2wDve","./views/bookmarksView.js":"1WcBo","./views/addRecipeView.js":"3MSWM","core-js/stable":"7HWBg","regenerator-runtime/runtime":"52ZGc"}],"4zirz":[function(require,module,exports) {
+},{"./model.js":"4zirz","./views/recipeView.js":"3LnNd","./views/searchView.js":"5myLn","./views/resultsView.js":"4fDI4","./views/paginationView.js":"2wDve","./views/bookmarksView.js":"1WcBo","./views/addRecipeView.js":"3MSWM","core-js/stable":"7HWBg","regenerator-runtime/runtime":"52ZGc","./config.js":"F1wIw"}],"4zirz":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -616,6 +637,7 @@ var _config = require("./config.js");
 
 var _helpers = require("./helpers.js");
 
+// import { getJSON, sendJSON } from './helpers.js';
 // State contains all the data we need to store our application
 const state = {
   recipe: {},
@@ -641,13 +663,16 @@ const createRecipeObject = function (data) {
     image: recipe.image_url,
     servings: recipe.servings,
     cookingTime: recipe.cooking_time,
-    ingredients: recipe.ingredients
+    ingredients: recipe.ingredients,
+    ...(recipe.key && {
+      key: recipe.key
+    })
   };
 };
 
 const loadRecipe = async function (id) {
   try {
-    const data = await (0, _helpers.getJSON)(`${_config.API_URL}${id}`);
+    const data = await (0, _helpers.AJAX)(`${_config.API_URL}${id}?key=${_config.KEY}`);
     state.recipe = createRecipeObject(data);
     if (state.bookmarks.some(bookmark => bookmark.id === id)) state.recipe.bookmarked = true;else state.recipe.bookmarked = false;
     console.log(state.recipe);
@@ -663,19 +688,22 @@ exports.loadRecipe = loadRecipe;
 const loadSearchResults = async function (query) {
   try {
     state.search.query = query;
-    const data = await (0, _helpers.getJSON)(`${_config.API_URL}?search=${query}`);
+    const data = await (0, _helpers.AJAX)(`${_config.API_URL}?search=${query}&key=${_config.KEY}`);
     console.log(data);
     state.search.results = data.data.recipes.map(rec => {
       return {
         id: rec.id,
         title: rec.title,
         publisher: rec.publisher,
-        image: rec.image_url
+        image: rec.image_url,
+        ...(rec.key && {
+          key: rec.key
+        })
       };
     });
     state.search.page = 1;
   } catch (err) {
-    console.error(`Beep! Boop! Bop! ${err}`);
+    console.error(`🤖 Beep! Boop! Bop! ${err}`);
     throw err;
   }
 };
@@ -760,8 +788,9 @@ const uploadRecipe = async function (newRecipe) {
       servings: +newRecipe.servings,
       ingredients
     };
-    const data = await (0, _helpers.sendJSON)(`${_config.API_URL}?key=${_config.KEY}`, recipe);
+    const data = await (0, _helpers.AJAX)(`${_config.API_URL}?key=${_config.KEY}`, recipe);
     state.recipe = createRecipeObject(data);
+    addBookmark(state.recipe);
   } catch (err) {
     throw err;
   }
@@ -774,7 +803,7 @@ exports.uploadRecipe = uploadRecipe;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.KEY = exports.RES_PER_PAGE = exports.TIMEOUT_SEC = exports.API_URL = void 0;
+exports.MODAL_CLOSE_SEC = exports.KEY = exports.RES_PER_PAGE = exports.TIMEOUT_SEC = exports.API_URL = void 0;
 const API_URL = 'https://forkify-api.herokuapp.com/api/v2/recipes/';
 exports.API_URL = API_URL;
 const TIMEOUT_SEC = 10;
@@ -783,13 +812,15 @@ const RES_PER_PAGE = 10;
 exports.RES_PER_PAGE = RES_PER_PAGE;
 const KEY = '495910cf-d491-477f-9785-b7fa03aca085';
 exports.KEY = KEY;
+const MODAL_CLOSE_SEC = 2.5;
+exports.MODAL_CLOSE_SEC = MODAL_CLOSE_SEC;
 },{}],"1IjzK":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.sendJSON = exports.getJSON = void 0;
+exports.AJAX = void 0;
 
 var _config = require("./config.js");
 
@@ -801,29 +832,15 @@ const timeout = function (s) {
   });
 };
 
-const getJSON = async function (url) {
+const AJAX = async function (url, uploadData = undefined) {
   try {
-    const fetchPro = fetch(url);
-    const res = await Promise.race([fetchPro, timeout(_config.TIMEOUT_SEC)]);
-    const data = await res.json();
-    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
-    return data;
-  } catch (err) {
-    throw err;
-  }
-};
-
-exports.getJSON = getJSON;
-
-const sendJSON = async function (url, uploadData) {
-  try {
-    const fetchPro = fetch(url, {
+    const fetchPro = uploadData ? fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(uploadData)
-    });
+    }) : fetch(url);
     const res = await Promise.race([fetchPro, timeout(_config.TIMEOUT_SEC)]);
     const data = await res.json();
     if (!res.ok) throw new Error(`${data.message} (${res.status})`);
@@ -832,8 +849,42 @@ const sendJSON = async function (url, uploadData) {
     throw err;
   }
 };
+/* 
+export const getJSON = async function (url) {
+  try {
+    const fetchPro = fetch(url);
+    const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
+    const data = await res.json();
 
-exports.sendJSON = sendJSON;
+    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const sendJSON = async function (url, uploadData) {
+  try {
+    const fetchPro = fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(uploadData),
+    });
+    const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+ */
+
+
+exports.AJAX = AJAX;
 },{"./config.js":"F1wIw"}],"3LnNd":[function(require,module,exports) {
 "use strict";
 
@@ -917,7 +968,11 @@ class RecipeView extends _View.default {
           </button>
         </div>
       </div>
-      <div class="recipe__user-generated">
+
+      <div class="recipe__user-generated ${this._data.key ? '' : 'hidden'}">
+        <svg>
+          <use href="${_icons.default}#icon-user"></use>
+        </svg>
       </div>
       <button class="btn--round btn--bookmark">
         <svg class="">
@@ -1654,7 +1709,12 @@ class PreviewView extends _View.default {
                 <div class="preview__data">
                     <h4 class="preview__title">${this._data.title}</h4>
                     <p class="preview__publisher">${this._data.publisher}</p>
+                    <div class="preview__user-generated ${this._data.key ? '' : 'hidden'}">
+                      <svg>
+                      <use href="${_icons.default}#icon-user"></use>
+                      </svg>
                 </div>
+             </div>        
             </a>
         </li>     
     `;
@@ -1889,6 +1949,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Parcel v2
 class AddRecipeView extends _View.default {
   _parentElement = document.querySelector('.upload');
+  _message = 'Recipe was successfully uploaded';
   _window = document.querySelector('.add-recipe-window');
   _overlay = document.querySelector('.overlay');
   _btnOpen = document.querySelector('.nav__btn--add-recipe');
