@@ -981,12 +981,12 @@ class RecipeView extends _View.default {
       </button>
     </div>
     <div class="recipe__ingredients">
-      <h2 class="heading--2">Recipe ingredients</h2>
+      <h2 class="heading--2">Ingredients</h2>
       <ul class="recipe__ingredient-list">
         ${this._data.ingredients.map(this._generateMarkupIngredient).join('')}
     </div>
     <div class="recipe__directions">
-      <h2 class="heading--2">How to cook it</h2>
+      <h2 class="heading--2">Directions</h2>
       <p class="recipe__directions-text">
         This recipe was carefully designed and tested by
         <span class="recipe__publisher">${this._data.publisher}</span>. Please check out
@@ -1041,6 +1041,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Parcel v2
 class View {
   _data;
+  /**
+   * Render the received object to the DOM
+   * @param {Object | Object[]} data The data to be rendered (e.g. recipe)
+   * @param {boolean} [render=true] If false, create markup string instead of rendering to the DOM
+   * @returns {undefined | string} A markup string is returned if render=false
+   * @this {Object} View instance 
+   * @author Rohit Bhogal
+   * @todo Finish implementation
+   */
 
   render(data, render = true) {
     if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
