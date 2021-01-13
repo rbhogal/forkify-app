@@ -6,6 +6,7 @@ import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
+import sortListView from './views/sortListView.js';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
@@ -124,6 +125,27 @@ const controlAddRecipe = async function (newRecipe) {
   location.reload();
 };
 
+// const controlSortList = function () {
+
+//   // 1) Render NEW sorted results ASC
+
+//   // 2) Render ASC button
+
+//   try {
+//     resultsView.renderSpinner();
+
+//     // 3) Render SORTED results
+//     // resultsView.render(model.state.search.results)
+//     resultsView.render(model.getSearchResultsPage());
+
+//     // 4) Render initial pagination buttons
+//     paginationView.render(model.state.search);
+//   } catch (err) {
+//     console.log(err);
+//   }
+  
+// }
+
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
@@ -132,6 +154,7 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
+  // sortListView.addHandlerClick(controlSortList);
 };
 
 init();

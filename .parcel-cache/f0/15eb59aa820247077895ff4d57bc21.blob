@@ -1,1 +1,0 @@
-require('./bundle-manifest').register(JSON.parse("{\"2dtmM\":\"index.HASH_REF_48daa4896af42a4d83c544df1dbdbe87.js\",\"2zALM\":\"icons.HASH_REF_54938424b181fd83f014c8faa5254f70.svg\"}"));
